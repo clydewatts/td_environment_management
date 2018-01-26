@@ -16,6 +16,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
+        }
         stage('Cook') {
             steps {
                 echo 'Cook....'
