@@ -16,6 +16,7 @@ pipeline {
         stage('Test1') {
           steps {
             bat(script: 'jenkins/test1.py', returnStatus: true, returnStdout: true)
+            mail(subject: 'Test', body: 'XXX', to: 'cw171001@teradata.com')
           }
         }
         stage('Sing') {
