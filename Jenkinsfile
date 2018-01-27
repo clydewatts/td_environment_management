@@ -13,6 +13,11 @@ pipeline {
             bat(script: 'test.py', returnStatus: true, returnStdout: true)
           }
         }
+        stage('Directory') {
+          steps {
+            bat(script: 'jenkins/test.py', returnStatus: true, returnStdout: true)
+          }
+        }
         stage('Sing') {
           steps {
             echo 'Building..'
