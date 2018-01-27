@@ -2,8 +2,17 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      steps {
-        echo 'Building..'
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'Building..'
+          }
+        }
+        stage('Directory') {
+          steps {
+            bat(script: 'test.bat', returnStatus: true, returnStdout: true)
+          }
+        }
       }
     }
     stage('Test') {
