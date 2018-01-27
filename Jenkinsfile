@@ -12,6 +12,7 @@ pipeline {
           steps {
             bat(script: 'test.bat', returnStatus: true, returnStdout: true)
           }
+        }
         stage('Sing') {
           steps {
             echo 'Building..'
