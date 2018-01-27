@@ -1,9 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Initialise') {
       steps {
-        echo 'Building..'
+        echo 'Init Started'
+        catchError() {
+          sh 'Jenkins/test1.py'
+          bat(script: 'test', returnStatus: true, returnStdout: true)
+        }
+        
       }
     }
     stage('Test') {
