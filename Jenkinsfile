@@ -7,7 +7,7 @@ pipeline {
           bat(script: 'test.py', returnStatus: true, returnStdout: true)
         }
         
-        pwd()
+        pwd(tmp: true)
       }
     }
     stage('Test') {
