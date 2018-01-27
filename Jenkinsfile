@@ -13,9 +13,9 @@ pipeline {
             bat(script: 'test.py', returnStatus: true, returnStdout: true)
           }
         }
-        stage('Directory') {
+        stage('Test1') {
           steps {
-            bat(script: 'jenkins/test.py', returnStatus: true, returnStdout: true)
+            bat(script: 'jenkins/test1.py', returnStatus: true, returnStdout: true)
           }
         }
         stage('Sing') {
