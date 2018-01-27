@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Directory') {
           steps {
-            bat(script: 'test.bat', returnStatus: true, returnStdout: true)
+            bat(script: 'test.py', returnStatus: true, returnStdout: true)
           }
         }
         stage('Sing') {
