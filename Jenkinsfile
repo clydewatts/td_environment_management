@@ -3,10 +3,9 @@ pipeline {
   stages {
     stage('Initialise') {
       steps {
-        echo 'Init Started'
         catchError() {
           sh 'jenkins/test1.py'
-          bat(script: 'test', returnStatus: true, returnStdout: true)
+          bat(script: 'test..py', returnStatus: true, returnStdout: true)
         }
         
       }
