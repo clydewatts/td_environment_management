@@ -4,7 +4,7 @@ pipeline {
     stage('Initialise') {
       steps {
         catchError() {
-          bat(script: 'test..py', returnStatus: true, returnStdout: true)
+          bat(script: 'test.py', returnStatus: true, returnStdout: true)
         }
         
       }
