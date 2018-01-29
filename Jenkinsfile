@@ -16,6 +16,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
+        bat 'robot robot/test.robot'
       }
     }
     stage('Deploy') {
