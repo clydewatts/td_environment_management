@@ -5,6 +5,7 @@ pipeline {
       steps {
         catchError() {
           bat(script: 'jenkins\\\\test.py', returnStatus: true, returnStdout: true)
+          dir(path: 'jenkins')
         }
         
         pwd(tmp: true)
