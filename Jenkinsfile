@@ -7,6 +7,7 @@ pipeline {
           bat(script: 'test.py', returnStatus: true, returnStdout: true)
         }
         
+        pwd(tmp: true)
       }
     }
     stage('Test') {
@@ -27,6 +28,7 @@ pipeline {
     stage('Supper') {
       steps {
         sleep 10
+        mail(subject: 'Test1 Jenkins Test 1', body: 'Hey Dood', from: 'cw171001@teradata.com', to: 'cw171001@teradata.com', replyTo: 'cw171001@teradata.com')
       }
     }
   }
