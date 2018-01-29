@@ -4,8 +4,10 @@ pipeline {
     stage('Initialise') {
       steps {
         catchError() {
-          bat(script: 'jenkins\\\\test.py', returnStatus: true, returnStdout: true)
-          dir(path: 'jenkins')
+          dir(path: 'jenkins') {
+            bat(script: 'test1.py', returnStatus: true, returnStdout: true)
+          }
+          
         }
         
         pwd(tmp: true)
