@@ -5,7 +5,7 @@ pipeline {
       steps {
         catchError() {
           dir(path: 'jenkins') {
-            bat(script: 'test1.py', returnStatus: true, returnStdout: true)
+            bat(script: 'python test1.py', returnStatus: true, returnStdout: true)
           }
           
         }
