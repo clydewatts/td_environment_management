@@ -16,7 +16,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
-        bat 'robot "%WORKSPACE%"/robot/test.robot'
+        bat(script: 'robot "%WORKSPACE%"/robot/test.robot', returnStatus: true)
       }
     }
     stage('Deploy') {
