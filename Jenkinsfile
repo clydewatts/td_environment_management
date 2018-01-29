@@ -4,7 +4,10 @@ pipeline {
     stage('Initialise') {
       steps {
         catchError() {
-          bat(script: 'test.py', returnStatus: true, returnStdout: true)
+          dir(path: 'jenkins') {
+            bat 'python test1.py'
+          }
+          
         }
         
         pwd(tmp: true)
@@ -13,6 +16,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
+        bat 'robot robot/test.robot'
       }
     }
     stage('Deploy') {
