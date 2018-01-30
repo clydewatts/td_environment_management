@@ -18,6 +18,7 @@ pipeline {
         echo 'Testing..'
         bat(script: 'robot "%WORKSPACE%"/robot/test.robot', returnStatus: true)
         archiveArtifacts 'output.xml'
+        archiveArtifacts 'log.html'
       }
     }
     stage('Deploy') {
