@@ -36,6 +36,11 @@ pipeline {
       }
     }
   }
+   post {
+        always {
+            xunit 'xunit.xml'
+        }
+    }
   environment {
     INSTANCE = 'D01'
   }
