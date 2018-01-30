@@ -26,7 +26,7 @@ pipeline {
     }
     stage('Cook') {
       steps {
-        echo 'Cook....'
+        echo 'Cook.......'
       }
     }
     stage('Supper') {
