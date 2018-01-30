@@ -16,7 +16,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
-        bat 'robot ${WORKSPACE}/robot/test.robot'
+        bat 'robot -x xunit ${WORKSPACE}/robot/test.robot'
       }
     }
     stage('Deploy') {
