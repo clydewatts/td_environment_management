@@ -38,7 +38,7 @@ pipeline {
   }
    post {
         always {
-            xunit 'xunit.xml'
+            mail(subject: 'Test2 Jenkins Test 2', body: 'Hey Dood', from: 'cw171001@teradata.com', to: 'cw171001@teradata.com', replyTo: 'cw171001@teradata.com')
         }
     }
 
