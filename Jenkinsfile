@@ -16,7 +16,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
-        bat 'robot -x xunit ${WORKSPACE}/robot/test.robot'
+        bat 'robot ${WORKSPACE}/robot/test.robot'
       }
     }
     stage('Deploy') {
@@ -36,11 +36,6 @@ pipeline {
       }
     }
   }
-   post {
-        always {
-            xunit 'xunit.xml'
-        }
-    }
   environment {
     INSTANCE = 'D01'
   }
