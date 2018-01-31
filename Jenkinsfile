@@ -21,6 +21,17 @@ pipeline {
                 thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
                 tools: [[$class: 'JUnitType', pattern: 'xunit.*']]])
 
+
+         step([$class: 'RobotPublisher',
+            disableArchiveOutput: false,
+            logFileName: 'log.html',
+            otherFiles: '',
+            outputFileName: 'output.xml',
+            outputPath: '.',
+            passThreshold: 100,
+            reportFileName: 'report.html',
+            unstableThreshold: 0]);
+
       }
     }
     stage('Deploy') {

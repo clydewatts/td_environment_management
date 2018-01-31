@@ -11,4 +11,8 @@ Test 3
     [Documentation]    Test 3 x
     Should be equal    2    2
 
+Test 4
+    [Documentation]    Test 4 x
+    Should be equal    2    3
+
 
