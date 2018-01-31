@@ -47,9 +47,11 @@ post {
         unstable {
             echo 'I am unstable :/'
         }
-        failure {
-            echo 'I failed :('
-        }
+  failure {
+        mail to: 'cw171001@teradata.com',
+             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Something is wrong with ${env.BUILD_URL}"
+    }
         changed {
             echo 'Things were different before.....'
         }
