@@ -17,6 +17,10 @@ pipeline {
       steps {
         echo 'Validate..'
         bat returnStatus: true, script:  'robot -x xunit "%WORKSPACE%"/robot/test.robot'
+        step([$class: 'XUnitBuilder',
+                thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
+                tools: [[$class: 'JUnitType', pattern: 'xunit.*']]])
+
       }
     }
     stage('Deploy') {
