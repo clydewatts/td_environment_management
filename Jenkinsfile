@@ -13,9 +13,9 @@ pipeline {
         pwd(tmp: true)
       }
     }
-    stage('Test') {
+    stage('Validate') {
       steps {
-        echo 'Testing..'
+        echo 'Validate..'
         bat returnStatus: true, script:  'robot -x xunit "%WORKSPACE%"/robot/test.robot'
       }
     }
@@ -24,16 +24,16 @@ pipeline {
         echo 'Deploying....'
       }
     }
-    stage('Cook') {
+    stage('Test') {
       steps {
-        echo 'Cook.......'
+        echo 'Test.......'
       }
     }
-     stage('Example') {
+     stage('Approve') {
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
-                submitter "alice,bob"
+                submitter "cw171001"
                 parameters {
                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
                 }
@@ -42,7 +42,7 @@ pipeline {
                 echo "Hello, ${PERSON}, nice to meet you."
             }
         }
-    stage('Supper') {
+    stage('Production') {
       steps {
         sleep 10
         mail(subject: 'Test1 Jenkins Test 1', body: 'Hey Dood', from: 'cw171001@teradata.com', to: 'cw171001@teradata.com', replyTo: 'cw171001@teradata.com')
