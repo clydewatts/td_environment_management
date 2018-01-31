@@ -5,7 +5,7 @@ pipeline {
       steps {
         catchError() {
           dir(path: 'jenkins') {
-            bat 'python test1.py'
+            bat 'python test1.py  --INSTANCE=%INSTANCE%'
           }
           
         }
