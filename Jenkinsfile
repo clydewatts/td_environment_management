@@ -15,21 +15,22 @@ pipeline {
     }
     stage('Validate') {
       steps {
+
         echo 'Validate..'
-        bat returnStatus: true, script:  'robot -x xunit "%WORKSPACE%"/robot/test.robot'
+        bat returnStatus: true, script:  'robot -d "%WORKSPACE%"/robot/report -x xunit "%WORKSPACE%"/robot/test.robot'
         step([$class: 'XUnitBuilder',
                 thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
-                tools: [[$class: 'JUnitType', pattern: 'xunit.*']]])
+                tools: [[$class: 'JUnitType', pattern: "%WORKSPACE%"/robot/report/'xunit.*']]])
 
 
          step([$class: 'RobotPublisher',
             disableArchiveOutput: false,
-            logFileName: 'log.html',
+            logFileName: 'robot/report/log.html',
             otherFiles: '',
-            outputFileName: 'output.xml',
+            outputFileName: 'robot/report/output.xml',
             outputPath: '.',
             passThreshold: 100,
-            reportFileName: 'report.html',
+            reportFileName: 'robot/report/report.html',
             unstableThreshold: 0]);
 
       }
