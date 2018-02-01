@@ -15,7 +15,7 @@ pipeline {
     }
 stage('Validate') {
        steps {
-         echo 'Validate..'
+         echo 'Validate...'
          bat returnStatus: true, script:  'robot -d robot/report -x xunit "%WORKSPACE%"/robot/test.robot'
          step([$class: 'XUnitBuilder',
                  thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
@@ -63,7 +63,7 @@ stage('Validate') {
         }
     stage('Production') {
       steps {
-        sleep 10
+        sleep 1
         mail(subject: 'Test1 Jenkins Test 1', body: 'Hey Dood', from: 'cw171001@teradata.com', to: 'cw171001@teradata.com', replyTo: 'cw171001@teradata.com')
       }
     }
