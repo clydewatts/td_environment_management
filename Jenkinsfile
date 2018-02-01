@@ -21,7 +21,7 @@ pipeline {
         step([$class: 'XUnitBuilder',
                 thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
                 tools: [[$class: 'JUnitType', pattern: "%WORKSPACE%"/robot/report/'xunit.*']]])
-
+         /* Robot */
 
          step([$class: 'RobotPublisher',
             disableArchiveOutput: false,
