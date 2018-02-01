@@ -5,7 +5,7 @@ Test 1
 
 Test 2
     [Documentation]    Test 2
-    Should be equal    1    2
+    Should be equal    1    1
 
 Test 3
     [Documentation]    Test 3 x
@@ -13,6 +13,6 @@ Test 3
 
 Test 4
     [Documentation]    Test 4 x
-    Should be equal    2    3
+    Should be equal    3    3
 
 
