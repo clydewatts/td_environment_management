@@ -1,5 +1,10 @@
 pipeline {
   agent any
+  environment {
+        INSTANCE = 'Z01'
+
+    }
+
   stages {
     stage('Initialise') {
       steps {
