@@ -9,16 +9,25 @@ pipeline {
     }
 
   stages {
-    stage('Initialise') {
+    stage('Initialise Linux') {
+    when {
+    isUnix
+    }
       steps {
-         if (isUnix()) {
-            bat 'python "${TEST_DIR}"/td_envmgr_test_init.py  --INSTANCE=${INSTANCE}'
-         } else {
+            sh 'python "${TEST_DIR}"/td_envmgr_test_init.py  --INSTANCE=${INSTANCE}'
+
+      }
+    }
+    stage('Initialise DOS') {
+     when not {
+     isUnix
+     }
+      steps {
             bat 'python "%TEST_DIR%"/td_envmgr_test_init.py  --INSTANCE=%INSTANCE%'
          }
 
       }
-    }
+
 stage('Validate') {
        steps {
          echo 'Validate...'
