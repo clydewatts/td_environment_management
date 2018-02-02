@@ -13,6 +13,7 @@ pipeline {
       steps {
             bat 'python %TEST_DIR%/td_envmgr_test_init.py  --INSTANCE=%INSTANCE%'
       }
+    }
 stage('Validate') {
        steps {
          echo 'Validate...'
