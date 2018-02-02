@@ -2,22 +2,17 @@ pipeline {
   agent any
   environment {
         INSTANCE = 'Z01'
+        UDAEXEC = 'udaexec'
+        BIN_DIR = 'bin'
+        TEST_DIR = 'test\td_enmgr'
 
     }
 
   stages {
     stage('Initialise') {
       steps {
-        catchError() {
-          dir(path: 'jenkins') {
-            bat 'python test1.py  --INSTANCE=%INSTANCE%'
-          }
-          
-        }
-        
-        pwd(tmp: true)
+            bat 'python %TEST_DIR%/td_envmgr_test_init.py  --INSTANCE=%INSTANCE%)
       }
-    }
 stage('Validate') {
        steps {
          echo 'Validate...'
