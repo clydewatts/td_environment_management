@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Initialise') {
       steps {
-            bat 'python %TEST_DIR%/td_envmgr_test_init.py  --INSTANCE=%INSTANCE%'
+            bat 'python "%TEST_DIR%"/td_envmgr_test_init.py  --INSTANCE=%INSTANCE%'
       }
     }
 stage('Validate') {
