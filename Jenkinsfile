@@ -4,7 +4,7 @@ pipeline {
         INSTANCE = 'Z01'
         UDAEXEC = 'udaexec'
         BIN_DIR = 'bin'
-        TEST_DIR = 'test\td_enmgr'
+        TEST_DIR = 'test/td_enmgr'
 
     }
 
