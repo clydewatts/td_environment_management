@@ -14,6 +14,8 @@ def udaexec_set_defaults(udaexec):
         udaexec.config['DBADMIN'] = 'DBADMIN'
     if 'DBADMIN_SP' not in udaexec.config:
         udaexec.config['DBADMIN_SP'] = 'DBADMIN'
+    if 'ROOT_DB' not in udaexec.config:
+        udaexec.config['ROOT_DB'] = 'DBC'
 
 def main():
     """Main"""
@@ -29,5 +31,8 @@ def main():
     session.execute("DROP DATABASE ${DBADMIN_ENVCONFIG}" ,ignoreErrors = [3802])
     session.execute("DROP DATABASE ${DBADMIN_SP}" ,ignoreErrors = [3802])
     session.execute("DROP DATABASE ${DBADMIN}" ,ignoreErrors = [3802])
+    # Create database
+    session.execute(file="../../ddl/DBADMIN.ddl")
+
 if __name__ == '__main__':
     main()
