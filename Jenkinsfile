@@ -11,9 +11,8 @@ pipeline {
   stages {
     stage('Initialise ...') {
       steps {
-            xShell {
-            commandLine('python "%TEST_DIR%"/td_envmgr_test_init.py  --INSTANCE=${INSTANCE}')
-            }
+            bat 'python "%TEST_DIR%"/td_envmgr_test_init.py  --INSTANCE=${INSTANCE}'
+
       }
     }
 
