@@ -6,8 +6,28 @@ import teradata
 import os
 
 
-# this will test python and jenkins
-import teradata
-udaexec = teradata.UdaExec(appName="test1",version=1)
-session = udaexec.connect(method='ODBC', system="192.168.31.142", username='dbc', password='dbc')
-exit(0)
+def udaexec_set_defaults(udaexec):
+    """This will set the defaults if udaexec is not present"""
+    if 'DBADMIN_ENVCONFIG' not in udaexec.config:
+        udaexec.config['DBADMIN_ENVCONFIG'] = 'DBADMIN_ENVCONFIG'
+    if 'DBADMIN' not in udaexec.config:
+        udaexec.config['DBADMIN'] = 'DBADMIN'
+    if 'DBADMIN_SP' not in udaexec.config:
+        udaexec.config['DBADMIN_SP'] = 'DBADMIN'
+
+def main():
+    """Main"""
+    udaexec = teradata.UdaExec(appName="test1" ,version=1)
+    # Get environment variable for config
+    session = udaexec.connect(method='ODBC', system="192.168.31.142", username='dbc', password='dbc')
+    udaexec_set_defaults()
+    # Delete from databases
+    session.execute("DELETE DATABASE ${DBADMIN_ENVCONFIG}" ,ignoreErrors = [3802])
+    session.execute("DELETE DATABASE ${DBADMIN_SP}" ,ignoreErrors = [3802])
+    session.execute("DELETE DATABASE ${DBADMIN}" ,ignoreErrors = [3802])
+    # Drop databases
+    session.execute("DROP DATABASE ${DBADMIN_ENVCONFIG}" ,ignoreErrors = [3802])
+    session.execute("DROP DATABASE ${DBADMIN_SP}" ,ignoreErrors = [3802])
+    session.execute("DROP DATABASE ${DBADMIN}" ,ignoreErrors = [3802])
+if __name__ == '__main__':
+    main()
