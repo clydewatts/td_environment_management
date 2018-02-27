@@ -4,6 +4,7 @@
 #-----------------------------------------------------------------------------
 import teradata
 import os
+import logging
 
 
 def udaexec_set_defaults(udaexec):
@@ -20,6 +21,8 @@ def udaexec_set_defaults(udaexec):
 def main():
     """Main"""
     udaexec = teradata.UdaExec(appName="test1" ,version=1)
+    # Where am i
+    logging.info("PWD={}".format(os.path.curdir))
     # Get environment variable for config
     session = udaexec.connect(method='ODBC', system="192.168.31.142", username='dbc', password='dbc')
     udaexec_set_defaults(udaexec)
