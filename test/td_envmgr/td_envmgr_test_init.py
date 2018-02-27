@@ -20,7 +20,7 @@ def main():
     udaexec = teradata.UdaExec(appName="test1" ,version=1)
     # Get environment variable for config
     session = udaexec.connect(method='ODBC', system="192.168.31.142", username='dbc', password='dbc')
-    udaexec_set_defaults()
+    udaexec_set_defaults(udaexec)
     # Delete from databases
     session.execute("DELETE DATABASE ${DBADMIN_ENVCONFIG}" ,ignoreErrors = [3802])
     session.execute("DELETE DATABASE ${DBADMIN_SP}" ,ignoreErrors = [3802])
