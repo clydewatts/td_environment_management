@@ -36,7 +36,7 @@ def main():
     session.execute("DROP DATABASE ${DBADMIN_SP}" ,ignoreErrors = [3802])
     session.execute("DROP DATABASE ${DBADMIN}" ,ignoreErrors = [3802])
     # Create database
-    session.execute(file="../../ddl/DBADMIN.ddl")
+    #session.execute(file="../../ddl/DBADMIN.ddl")
 
 if __name__ == '__main__':
     main()
