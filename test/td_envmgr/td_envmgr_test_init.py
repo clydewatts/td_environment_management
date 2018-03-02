@@ -20,7 +20,7 @@ def udaexec_set_defaults(udaexec):
 
 def main():
     """Main"""
-    udaexec = teradata.UdaExec(appName="test1" ,version=1)
+    udaexec = teradata.UdaExec(appName="td_envmgr_test_init" ,version=1)
     # Where am i
     logging.info("PWD={}".format(os.path.curdir))
     logging.info("PWD={}".format(os.path.abspath(os.path.curdir)))
