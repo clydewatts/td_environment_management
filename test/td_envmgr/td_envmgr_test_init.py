@@ -25,7 +25,7 @@ def main():
     logging.info("PWD={}".format(os.path.curdir))
     logging.info("PWD={}".format(os.path.abspath(os.path.curdir)))
     # Get environment variable for config
-    session = udaexec.connect(method='ODBC', system="192.168.31.142", username='dbc', password='dbc')
+    session = udaexec.connect(method='ODBC', system="192.168.31.142", username='dbc', password='dbc',driver='Teradata Database ODBC Driver 16.00')
     udaexec_set_defaults(udaexec)
     # Delete from databases
     session.execute("DELETE DATABASE ${DBADMIN_ENVCONFIG}" ,ignoreErrors = [3802])
